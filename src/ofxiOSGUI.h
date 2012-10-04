@@ -22,9 +22,10 @@
 
 @interface FadeableViewController : UIViewController {}
 
--(void)fadeIn:(float)duration;
+-(void)fadeIn:(float)duration; //show with fade transition
 -(void)fadeOut:(float)duration;
--(void)show;
+
+-(void)show; //show with no animation
 -(void)hide;
 
 @end
@@ -42,6 +43,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation;
+- (BOOL)shouldAutorotate;
+- (NSUInteger)supportedInterfaceOrientations;
 
 @end
 
@@ -57,7 +60,8 @@ class ofxiOSGUI{
 
 		static ofxiOSGUI* instance();
 		void addSupportedOrientation(UIInterfaceOrientation);
-		void addGUIView( UIView * view, bool stretchToFitScreen = true );
+		void addGUIView( UIView * view /*, bool stretchToFitScreen = false */);
+		UIViewController * getViewController();
 
 	private:
 

@@ -18,7 +18,9 @@
 		
 		touchPoint.x*=touchScaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
 		touchPoint.y*=touchScaleFactor;
-		
+
+		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
+
 		//if( touchIndex==0 ){ //uri
 			ofNotifyMousePressed(touchPoint.x, touchPoint.y, 0);
 		//}
@@ -44,6 +46,8 @@
 		
 		touchPoint.x*=touchScaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
 		touchPoint.y*=touchScaleFactor;
+
+		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
 		
 		//if( touchIndex==0 ){ //uri
 			ofNotifyMouseDragged(touchPoint.x, touchPoint.y, 0);			
@@ -70,6 +74,8 @@
 		touchPoint.x*=touchScaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
 		touchPoint.y*=touchScaleFactor;
 
+		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
+		
 		//if( touchIndex==0 ){ //uri
 			ofNotifyMouseReleased(touchPoint.x, touchPoint.y, 0);						
 		//}

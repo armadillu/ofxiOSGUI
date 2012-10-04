@@ -29,6 +29,7 @@ void MainMenuScene::draw(){
 	//your scene's draw code here, if any
 }
 
+
 // Scene enter/exit Notifications //
 
 void MainMenuScene::sceneWillAppear( ofxScene * fromScreen ){  // reset our scene when we appear
@@ -82,16 +83,12 @@ void MainMenuScene::sceneDidDisappear( ofxScene * fromScreen ){
 }
 
 -(IBAction)button2:(id)sender;{
-	if (mainMenuScene){
-		//
-	}
+	//launch your other scene here
 }
 
 
 -(IBAction)button3:(id)sender;{
-	if (mainMenuScene){
-		//
-	}
+	//launch your other scene here
 }
 
 
