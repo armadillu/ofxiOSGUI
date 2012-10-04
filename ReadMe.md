@@ -1,1 +1,1 @@
-Basic OF setup for a multi-scene (each with its UI) iOS app/game
+Basic OF setup for a multi-scene (each with its own native UI) iOS app/game
