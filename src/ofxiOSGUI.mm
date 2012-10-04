@@ -23,27 +23,34 @@ ofxiOSGUI::ofxiOSGUI(){
 	guiHolder.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.0];
 	guiHolder.opaque = FALSE;
 	mainViewController = [[ofxiOSGUIController alloc] init];
+	//mainViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 	mainViewController.view = guiHolder;
-	mainViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-	guiHolder.superview.autoresizesSubviews = YES;
-	guiHolder.autoresizesSubviews = YES;
-	//[ofxiPhoneGetViewController().view insertSubview: mainViewController.view belowSubview: ofxiPhoneGetGLView()];
-	[ofxiPhoneGetUIWindow() setRootViewController: mainViewController];
+	//NSLog(@"rect 1: %@", NSStringFromCGRect( [mainViewController.view frame] ) );
 
-	[UIViewController attemptRotationToDeviceOrientation];
-	[mainViewController.view setNeedsLayout];
+	//guiHolder.superview.autoresizesSubviews = YES;
+	//guiHolder.autoresizesSubviews = YES;
+	//[ofxiPhoneGetViewController().view insertSubview: mainViewController.view belowSubview: ofxiPhoneGetGLView()];
+
+	//[ofxiPhoneGetUIWindow() setRootViewController: mainViewController]; //doing this after user sets a supported orientation to avoid unknonw answer to shouldAutorotateToInterfaceOrientation:
+
+	//[UIViewController attemptRotationToDeviceOrientation];
+	//[mainViewController.view setNeedsLayout];
 }
 
 
 void ofxiOSGUI::addGUIView( UIView * view /*, bool stretchToFitScreen */){
 
+	//view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+	//NSLog(@"rect b4 add: %@", NSStringFromCGRect( [mainViewController.view frame] ) );
 	[mainViewController.view addSubview: view];
-	view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+
 	//if (stretchToFitScreen){
-	//	float retina = ofxiPhoneGetOFWindow()->isRetinaSupported() ? 2 : 1;
-	//	[view setFrame: CGRectMake(0, 0, retina * ofGetWidth(), retina * ofGetHeight())];
+		float retina = ofxiPhoneGetOFWindow()->isRetinaSupported() ? 2 : 1;
+		[view setFrame: CGRectMake(0, 0, retina * ofGetWidth(), retina * ofGetHeight())];
+		//[mainViewController.view setFrame: CGRectMake(0, 0, retina * ofGetWidth(), retina * ofGetHeight())];
 	//}
-	[view setFrame: [mainViewController.view frame]];
+	//NSLog(@"rect add: %@", NSStringFromCGRect( [mainViewController.view frame] ) );
+	//[view setFrame: [mainViewController.view frame]];
 	[UIViewController attemptRotationToDeviceOrientation];
 	[mainViewController.view setNeedsLayout];
 }
@@ -52,6 +59,10 @@ void ofxiOSGUI::addGUIView( UIView * view /*, bool stretchToFitScreen */){
 void ofxiOSGUI::addSupportedOrientation(UIInterfaceOrientation o){
 	NSLog(@"addSupportedOrientation: %d", o);
 	[mainViewController addSupportedOrientation:o];
+	if (ofxiPhoneGetUIWindow().rootViewController == nil){
+		[ofxiPhoneGetUIWindow() setRootViewController: mainViewController];
+	}
+
 	[UIViewController attemptRotationToDeviceOrientation];
 	[mainViewController.view setNeedsLayout];
 }

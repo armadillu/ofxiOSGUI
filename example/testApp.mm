@@ -4,13 +4,15 @@
 void testApp::setup(){	
 	// initialize the accelerometer
 	ofxAccelerometer.setup();	
-	//If you want a landscape oreintation 
+	//If you want a landscape orientation
 	iPhoneSetOrientation(OFXIPHONE_ORIENTATION_LANDSCAPE_LEFT);
+	//iPhoneSetOrientation(OFXIPHONE_ORIENTATION_PORTRAIT);
 	ofBackground(32,32,32);
 
 	//setup iOS GUI here by specifying your app's supported UI orientations
 	ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationLandscapeRight); //OF and iOS have inverted LEFT / RIGHT orientations?
 	//ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationLandscapeLeft);
+	//ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationPortrait);
 
 	sceneManager = ofxSceneManager::instance();
 	//add scenes to app
