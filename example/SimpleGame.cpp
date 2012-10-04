@@ -43,6 +43,8 @@ void SimpleGame::draw(){
 			 ofGetHeight() * 0.5f + pos.y,
 			 20
 			 );
+
+	ofDrawBitmapString("2-tap to pause", ofGetWidth()/2, ofGetHeight()/2);
 }
 
 
