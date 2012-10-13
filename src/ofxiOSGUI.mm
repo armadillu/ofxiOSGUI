@@ -45,7 +45,7 @@ void ofxiOSGUI::addGUIView( UIView * view /*, bool stretchToFitScreen */){
 	[mainViewController.view addSubview: view];
 
 	//if (stretchToFitScreen){
-		float retina = ofxiPhoneGetOFWindow()->isRetinaSupported() ? 2 : 1;
+		float retina = ofxiPhoneGetOFWindow()->isRetinaSupported() ? 0.5 : 1;
 		[view setFrame: CGRectMake(0, 0, retina * ofGetWidth(), retina * ofGetHeight())];
 		//[mainViewController.view setFrame: CGRectMake(0, 0, retina * ofGetWidth(), retina * ofGetHeight())];
 	//}
