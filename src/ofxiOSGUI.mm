@@ -61,6 +61,7 @@ void ofxiOSGUI::addSupportedOrientation(UIInterfaceOrientation o){
 	[mainViewController addSupportedOrientation:o];
 	if (ofxiPhoneGetUIWindow().rootViewController == nil){
 		[ofxiPhoneGetUIWindow() setRootViewController: mainViewController];
+		[ofxiPhoneGetGLView() addSubview: mainViewController.view];
 	}
 
 	[UIViewController attemptRotationToDeviceOrientation];
