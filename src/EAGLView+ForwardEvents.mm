@@ -1,7 +1,7 @@
 #import "EAGLView.h"
 #import "ofxiPhoneExtras.h"
 
-@implementation EAGLView (ForwardEvents)
+@implementation ofxiOSEAGLView (ForwardEvents)
 
 /******************* TOUCH EVENTS ********************/
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event inView:(UIView*) view{
@@ -16,8 +16,8 @@
 		
 		CGPoint touchPoint = [touch locationInView:view];
 		
-		touchPoint.x*=touchScaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
-		touchPoint.y*=touchScaleFactor;
+		touchPoint.x*=scaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
+		touchPoint.y*=scaleFactor;
 
 		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
 
@@ -26,6 +26,7 @@
 		//}
 		
 		ofTouchEventArgs touchArgs;
+		touchArgs.numTouches = [[event touchesForView:self] count];
 		touchArgs.x = touchPoint.x;
 		touchArgs.y = touchPoint.y;
 		touchArgs.id = touchIndex;
@@ -44,8 +45,8 @@
 		
 		CGPoint touchPoint = [touch locationInView:view];
 		
-		touchPoint.x*=touchScaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
-		touchPoint.y*=touchScaleFactor;
+		touchPoint.x*=scaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
+		touchPoint.y*=scaleFactor;
 
 		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
 		
@@ -71,8 +72,8 @@
 		
 		CGPoint touchPoint = [touch locationInView: view];
 		
-		touchPoint.x*=touchScaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
-		touchPoint.y*=touchScaleFactor;
+		touchPoint.x*=scaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
+		touchPoint.y*=scaleFactor;
 
 		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
 		
@@ -98,8 +99,8 @@
 		
 		CGPoint touchPoint = [touch locationInView:view];
 		
-		touchPoint.x*=touchScaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
-		touchPoint.y*=touchScaleFactor;
+		touchPoint.x*=scaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
+		touchPoint.y*=scaleFactor;
 
 		ofTouchEventArgs touchArgs;
 		touchArgs.numTouches = [[event touchesForView:view] count];
