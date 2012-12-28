@@ -8,7 +8,7 @@
 #import "ofxiPhoneExtras.h"
 
 
-@interface EAGLView (ForwardEvents)
+@interface ofxiOSEAGLView (ForwardEvents)
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event inView:(UIView*) view;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event inView:(UIView*) view;
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event inView:(UIView*) view;
