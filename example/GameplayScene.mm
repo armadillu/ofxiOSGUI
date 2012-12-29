@@ -15,8 +15,8 @@ GameView * gameGui;
 void GameplayScene::setup(){
 
 	printf("setup GameplayScene\n");
-	gameGui	= [[GameView alloc] initWithNibName:@"GameView" scene:this];
-	ofxiOSGUI::instance()->addGUIView(gameGui.view);
+	gameGui	= [[GameView alloc] initWithNibName:@"GameView" scene:this]; //load nib UI for our gameplay scene
+	ofxiOSGUI::instance()->addGUIView(gameGui.view); //add our GameView UI view to ofxiOSGUI
 
 	game = new SimpleGame();
 	game->setup();
@@ -24,19 +24,19 @@ void GameplayScene::setup(){
 
 
 void GameplayScene::update(float dt){		
-	game->update(dt);		
+	game->update(dt);	//forward the update call to our actual OF game
 }
 
 void GameplayScene::draw(){		
-	game->draw();		
+	game->draw();		//forward the draw call to our actual OF game
 }
 
 void GameplayScene::showUI(){
-	[gameGui show];
+	[gameGui show]; //make the UI for this scene show
 }
 
 void GameplayScene::hideUI(){
-	[gameGui hide];
+	[gameGui hide]; //make the UI for this scene hide
 }
 
 
@@ -69,12 +69,12 @@ void GameplayScene::touchDoubleTap(ofTouchEventArgs &touch){
 
 // Scene enter/exit Notifications ///////////////////////////////////////
 
-void GameplayScene::sceneWillAppear( ofxScene * fromScreen ){  // reset our scene when we appear
+void GameplayScene::sceneWillAppear( ofxScene * fromScreen ){ 
 	printf("GameplayScene WillAppear\n");
 	game->resume();
 }
 
-void GameplayScene::sceneDidAppear(){  // reset our scene when we appear
+void GameplayScene::sceneDidAppear(){
 	printf("GameplayScene DidAppear\n");
 }
 
@@ -110,18 +110,20 @@ void GameplayScene::sceneDidDisappear( ofxScene * fromScreen ){
 /////////////////////////////////////////////////////////
 
 
--(IBAction)resume:(id)sender;{
+-(IBAction)resume:(id)sender;{ //our iOS UI buttons action
 	if (gameScene){
 		printf("resume gameScene\n");
+		//once the "resume" button is clicked, resume game, hide the UI
 		gameScene->resumeScene();
 		[self hide];
 	}
 }
 
 
--(IBAction)exit:(id)sender;{
+-(IBAction)exit:(id)sender;{ //our iOS UI buttons action
 	if (gameScene){
 		printf("exit gameScene\n");
+		//once the "exit" button is clicked, jump to main scene, hide the UI
 		ofxSceneManager::instance()->goToScene(MAIN_MENU_SCENE);
 		[self hide];
 	}

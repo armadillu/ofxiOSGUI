@@ -64,8 +64,8 @@ public:
 -(id)initWithNibName:(NSString *)nibName scene:(GameplayScene *)scene;
 -(void)viewDidLoad;
 
--(IBAction)resume:(id)sender;
--(IBAction)exit:(id)sender;
+-(IBAction)resume:(id)sender; //our iOS UI buttons action
+-(IBAction)exit:(id)sender; //our iOS UI buttons action
 
 @end
 

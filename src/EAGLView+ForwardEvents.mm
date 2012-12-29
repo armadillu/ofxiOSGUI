@@ -1,7 +1,8 @@
 #import "EAGLView.h"
 #import "ofxiPhoneExtras.h"
+#import "EAGLView+ForwardEvents.h"
 
-@implementation ofxiOSEAGLView (ForwardEvents)
+@implementation OFXIOSGUI_IOS_VIEW_CLASS (ForwardEvents)
 
 /******************* TOUCH EVENTS ********************/
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event inView:(UIView*) view{
@@ -16,8 +17,8 @@
 		
 		CGPoint touchPoint = [touch locationInView:view];
 		
-		touchPoint.x*=scaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
-		touchPoint.y*=scaleFactor;
+		touchPoint.x *= OFXIOSGUI_SCALE_FACTOR; // this has to be done because retina still returns points in 320x240 but with high percision
+		touchPoint.y *= OFXIOSGUI_SCALE_FACTOR;
 
 		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
 
@@ -45,8 +46,8 @@
 		
 		CGPoint touchPoint = [touch locationInView:view];
 		
-		touchPoint.x*=scaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
-		touchPoint.y*=scaleFactor;
+		touchPoint.x *= OFXIOSGUI_SCALE_FACTOR; // this has to be done because retina still returns points in 320x240 but with high percision
+		touchPoint.y *= OFXIOSGUI_SCALE_FACTOR;
 
 		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
 		
@@ -72,8 +73,8 @@
 		
 		CGPoint touchPoint = [touch locationInView: view];
 		
-		touchPoint.x*=scaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
-		touchPoint.y*=scaleFactor;
+		touchPoint.x *= OFXIOSGUI_SCALE_FACTOR; // this has to be done because retina still returns points in 320x240 but with high percision
+		touchPoint.y *= OFXIOSGUI_SCALE_FACTOR;
 
 		//iPhoneGetOFWindow()->rotateXY(touchPoint.x, touchPoint.y);
 		
@@ -99,8 +100,8 @@
 		
 		CGPoint touchPoint = [touch locationInView:view];
 		
-		touchPoint.x*=scaleFactor; // this has to be done because retina still returns points in 320x240 but with high percision
-		touchPoint.y*=scaleFactor;
+		touchPoint.x *= OFXIOSGUI_SCALE_FACTOR; // this has to be done because retina still returns points in 320x240 but with high percision
+		touchPoint.y *= OFXIOSGUI_SCALE_FACTOR;
 
 		ofTouchEventArgs touchArgs;
 		touchArgs.numTouches = [[event touchesForView:view] count];
