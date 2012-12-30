@@ -10,8 +10,8 @@ void testApp::setup(){
 
 	//setup iOS GUI here by specifying your app's supported UI orientations
 	ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationPortrait);
-	ofxiOSGUI::instance()->addSupportedOrientation(UIDeviceOrientationPortraitUpsideDown);
-	//ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationLandscapeRight); //OF and iOS have inverted LEFT / RIGHT orientations?
+	ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationPortraitUpsideDown);
+	//ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationLandscapeRight);
 	//ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationLandscapeLeft);
 
 	sceneManager = ofxSceneManager::instance(); // store a ptr to the ofxSceneManager's instance for quick access

@@ -13,7 +13,7 @@ Orientation feature is also largely untested in different iOS versions, and I've
 Just a quick note; make sure the app's specified supported orientations in Xcode(on your info.plist) matches the orientations specified in your code:
 
 	ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationPortrait);
-	ofxiOSGUI::instance()->addSupportedOrientation(UIDeviceOrientationPortraitUpsideDown);
+	ofxiOSGUI::instance()->addSupportedOrientation(UIInterfaceOrientationPortraitUpsideDown);
 
 ![demo image](http://farm9.staticflickr.com/8361/8320120970_b6bf430eee.jpg)
 
